@@ -1,0 +1,420 @@
+/* CSS Reset */
+body, header, nav, main, footer, h1 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* CSS styles for multiple pages */
+input {
+    font-size: 8vh;
+    width: 80vh;
+}
+
+label, input {
+    display: block;
+}
+
+label {
+    font-size: 3.2vh;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 1vh;
+}
+
+input {
+    border-width: 0;
+    border-radius: 1.5vh;
+    box-sizing: border-box;
+}
+
+input:focus {
+    outline: none;
+    border-style: solid;
+    border-width: 0.4vh;
+    border-color: rgba(177,0,66,1);
+}
+
+/* make the buttons have a visual cue when hovered over */
+.form_button:hover {
+    opacity: 1.0;
+}
+
+/* add shape to buttons and set them in place on the screen */
+.form_button {
+    width: 34vh;
+    font-size: 4vh;
+    height: 8vh;
+    border-radius: 0.75vh;
+    background-color: rgb(168, 2, 63);
+    border: none;
+    opacity: 0.7;
+}
+
+#form_background {
+    margin-top: 0;
+    background: rgb(224,223,223);
+    background: linear-gradient(180deg, rgba(224,223,223,1) 5%, rgba(177,0,66,1) 95%);
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.highlight_correct {
+    background-color: rgb(0,128,0,0.5);
+}
+.highlight_incorrect {
+    background-color: rgb(155,0,0,0.5);
+}
+.flying_letter, .no_highlight {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.banner {
+    width: 100%;
+    margin-top: 20vh;
+    background-color: black;
+    border-radius: 1vh;
+    opacity: 0.6;
+}
+
+.banner_instructions {
+    color: gray;
+    font-size: 10vh;
+}
+
+.outline_text_white {
+    text-shadow: 1px 0 0 white, 0 -1px 0 white, -1px 0 0 white;
+}
+
+.outline_text_black {
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, -1px 0 0 #000;
+}
+
+/* CSS for homepage */
+
+/* this is all to get the homepage to be one hero image carousel w/buttons to switch between them */
+/* may be phased out in later releases if more content is available, or just relegate old content to a different page */
+#homepage_content {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+}
+
+.content_slides input {
+    display: none;
+    visibility: hidden;
+}
+
+.labels {
+    display: flex;
+    gap: 2vw;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+}
+
+.labels label {
+    height: 2vh;
+    width: 2vw;
+    background-color: rgb(97, 36, 36);
+    border-radius: 1vw;
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    box-shadow: 0px 7px 15px 3px rgba(0,0,0,0.75);
+}
+
+.content_slides input:nth-child(1):checked ~ .labels label:nth-child(1),
+.content_slides input:nth-child(2):checked ~ .labels label:nth-child(2) {
+    width: 6vw;
+    background: rgb(54, 21, 21)
+}
+
+/* NOTE: in order to get this with pure CSS we need to manually adjust the width to be n times 100vw in the .hero_content section */
+/* so to add another slide we must manually adjust that value */ 
+.hero_content {
+    display: flex;
+    width: 200vw;
+    position: relative;
+    transition: all .5s linear;
+}
+
+.hero_box {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.hero_box_content {
+    height: 90vh;
+    width: 90vw;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+#hero_box_form_bg {
+    background-image: url('../assets/homepage_images/monkey_science1.jpg');
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: darken;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#hero_box_controversies_bg {
+    background-image: url('../assets/homepage_images/monkey_science2.jpg');
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: darken;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.content_slides input:nth-child(1):checked ~ .hero_content {
+    left: 0vw;
+}
+.content_slides input:nth-child(2):checked ~ .hero_content {
+    left: -100vw;
+}
+
+/* CSS for the text on each page */
+.hero_box_heading {
+    font-size: 12vh;
+    color: #cfcfcf;
+}
+
+.hero_box_text {
+    width: 20vw;
+    font-size: 24px;
+    color: #cfcfcf;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10%;
+    margin-left: 2vw;
+}
+
+.hero_box_button {
+    cursor: pointer;
+    float: right;
+    /* override some of the form button CSS */
+    background-color: rgb(104, 12, 12);
+    opacity: 0.9;
+}
+
+/* CSS for typing challenge section specifically */
+#wpm_timer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgb(255,162,91);
+    font-size: 6vh;
+}
+
+#typing_challenge_instructions {
+    text-align: center;
+}
+
+#text_section {
+    margin-top: 8vh;
+    height: min-content;
+}
+
+#typing_challenge_text {
+    white-space: pre-line;
+    font-size: 5vh;
+}
+
+/* CSS for name selection section specifically */
+.flying_letter:hover, .default_cursor:hover {
+    cursor: default;
+}
+
+/* center fields in middle of screen */
+#name_input_section {
+    /* center content */
+    display: block;
+    margin: auto;
+    margin-top: 20vh;
+    width: max-content;
+    /* make box to contain elements */
+    border: 5px black;
+    border-radius: 7px;
+}
+
+#first_name_section, #last_name_section, #button_section {
+    padding: 5vh 2vh 5vh 2vh;
+}
+
+#first_name_section, #last_name_section {
+    display: block;
+}
+
+#button_section {
+    text-align: center;
+}
+
+#confirmation_button_section {
+    position: absolute;
+    width: 100%;
+    bottom: 5vh;
+    text-align: center;
+}
+
+#preview_canvas {
+    position: absolute;
+    left: 0px;
+}
+
+#reset_button {
+    margin-left: 6vh;
+}
+
+#confirm_button {
+    margin-right: 6vh;
+}
+
+/* looking back I am not sure why I seperated this button from the rest, but it shouldn't mess anything up */
+#more_letters_button {
+    position: absolute;
+    top: 2vh;
+    right: 2vh;
+    font-size: 2vh;
+    height: 4vh;
+    border-radius: 0.75vh;
+    background-color: rgba(177,0,66,1);
+    border: none;
+    opacity: 0.4;
+}
+
+#more_letters_button:hover {
+    opacity: 1.0;
+}
+
+#name_confirmation_confirm_button {
+    margin-right: 20vh;
+}
+
+#name_confirmation_reset_button {
+    margin-left: 20vh;
+}
+
+/* CSS for birthday guesser section */
+#birthday_game_section {
+    display: block;
+    text-align: center;
+}
+
+#birthday_guess_section {
+    display: block;
+    margin: auto;
+    margin-top: 20vh;
+    width: max-content;
+    text-align: center;
+    color: rgb(26, 0, 10);
+}
+
+#birthday_guess_title {
+    font-size: 6vh;
+    margin-bottom: 2vh;
+}
+
+#birthday_guess {
+    font-size: 15vh;
+    margin-bottom: 10vh;
+}
+
+#lower {
+    margin-right: 7vw;
+}
+
+#higher {
+    margin-left: 7vw;
+}
+
+#correct {
+    display: block;
+    justify-content: center;
+    margin: auto;
+    margin-top: 3vh;
+    width: min-content;
+    height: min-content;
+    padding: 2vh;
+    font-size: 2vh;
+}
+
+#birthday_buttons_section {
+    display: inline-block;
+}
+
+/* for the confirmation section */
+#birthday_confirmation_title {
+    text-align: center;
+    font-size: 8vh;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
+
+#confirm_div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.celebrity_birthday{
+    text-align: center;
+    width: auto;
+    height: auto;
+    padding: 4vh 1vh 1vh 1vh;
+}
+
+.celebrity_birthday img {
+    width: 25vh;
+    height: 40vh;
+    border-radius: 10px;
+    box-shadow: 0 0 16px #333;
+    opacity: 0.8;
+    object-fit: cover;
+}
+
+.celebrity_birthday_allow_transitions {
+    -webkit-transition: transform 0.5s ease-in-out;
+    -moz-transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+}
+
+.celebrity_birthday_allow_transitions:hover {
+    -moz-transform: scale(1.16);
+    -webkit-transform: scale(1.16);
+    -o-transform: scale(1.16);
+    -ms-transform: scale(1.16);
+    -webkit-transform: scale(1.16);
+    transform: scale(1.16);
+}
+
+.celebrity_birthday img:hover {
+    box-shadow: 0 0 32px #333;
+    opacity: 1.0;
+}
+
+.wrong_celebrity_birthday {
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+    filter: gray;
+    opacity: 0.5;
+}
+
+/* CSS for end of form */
+#end_of_form_section {
+    text-align: center;
+}

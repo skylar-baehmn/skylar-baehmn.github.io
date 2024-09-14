@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>I want to play a game</title>
+        <meta charset="utf-8">
+        <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+
+    <body id="form_background">
+        <div>
+
+            <main>
+
+                <button type="button" class="no_highlight" id="more_letters_button">FASTER</button>
+
+                <div id="name_input_section">
+                    <div id="first_name_section">
+                        <label for="first_name_input">First Name</label>
+                        <input type="text" id="first_name_input" name="first_name_input" required autofocus>
+                    </div>
+                    <div id="last_name_section">
+                        <label for="last_name_input">Last Name</label>
+                        <input type="text" id="last_name_input" name="last_name_input" required>
+                    </div>
+                    <div id="button_section">
+                        <button type="button" class="no_highlight form_button" id="confirm_button">SUBMIT</button>
+                        <button type="button" class="no_highlight form_button" id="reset_button">RESET</button>
+                    </div>
+                </div>
+
+                <div id="flying_letter_section">
+
+                </div>
+
+            </main>
+
+        </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+        <script src='scripts/name_selector.js'></script>
+    </body>
+</html>
