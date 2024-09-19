@@ -95,6 +95,12 @@ input:focus {
 }
 
 /* CSS for homepage */
+/* this is for the gif that will play before the website shows any content */
+#homepage_gif {
+    width: 100vw;
+    height: 100vh;
+    background-size: contain;
+}
 
 /* this is all to get the homepage to be one hero image carousel w/buttons to switch between them */
 /* may be phased out in later releases if more content is available, or just relegate old content to a different page */
